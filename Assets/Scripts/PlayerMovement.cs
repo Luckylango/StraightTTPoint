@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpingPower;
     private bool isFacingRight = true;
 
-    private Animator animator;
+    public Animator animator;
 
     private bool isJumping;
     private int maxJumps = 5;
@@ -46,7 +46,9 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+
+        animator.SetFloat("Speed", Mathf.Abs(horizontal));
+
         _moveDirection = move.action.ReadValue<Vector2>();
 
         if (isDashing)
@@ -60,6 +62,7 @@ public class PlayerMovement : MonoBehaviour
         if (IsGrounded() && !Input.GetButton("Jump"))
         {
             isJumping = false;
+            animator.SetBool("IsJumping", false);
             remainingJumps = maxJumps;
         }
 
@@ -68,6 +71,7 @@ public class PlayerMovement : MonoBehaviour
             if (IsGrounded() || (isJumping && remainingJumps > 0))
             {
                 isJumping = true;
+                animator.SetBool("IsJumping", true);
                 rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
                 remainingJumps--;
             }
@@ -76,15 +80,6 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q) && canDash)
         {
             StartCoroutine(Dash());
-        }
-
-        if (_moveDirection != Vector2.zero)
-        {
-            animator.SetBool("IsMoving", true);
-        }
-        else
-        {
-            animator.SetBool("IsMoving", false);
         }
 
         Flip();
