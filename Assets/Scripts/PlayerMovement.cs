@@ -1,6 +1,8 @@
+using Mono.Cecil;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -13,8 +15,10 @@ public class PlayerMovement : MonoBehaviour
     public float jumpingPower;
     private bool isFacingRight = true;
 
+    private Animator animator;
+
     private bool isJumping;
-    private int maxJumps = 3;
+    private int maxJumps = 5;
     private int remainingJumps;
 
     private bool canDash = true;
@@ -24,17 +28,25 @@ public class PlayerMovement : MonoBehaviour
     public float dashingCooldown;
 
     private Vector2 _moveDirection;
+
     public InputActionReference move;
+    public InputActionReference jump;
+    public InputActionReference dash;
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private TrailRenderer tr;
 
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
+
     // Update is called once per frame
     void Update()
     {
-
+       
         _moveDirection = move.action.ReadValue<Vector2>();
 
         if (isDashing)
@@ -43,6 +55,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         horizontal = Input.GetAxisRaw("Horizontal");
+
 
         if (IsGrounded() && !Input.GetButton("Jump"))
         {
@@ -59,10 +72,19 @@ public class PlayerMovement : MonoBehaviour
                 remainingJumps--;
             }
         }
-
+        
         if (Input.GetKeyDown(KeyCode.Q) && canDash)
         {
             StartCoroutine(Dash());
+        }
+
+        if (_moveDirection != Vector2.zero)
+        {
+            animator.SetBool("IsMoving", true);
+        }
+        else
+        {
+            animator.SetBool("IsMoving", false);
         }
 
         Flip();
@@ -109,5 +131,7 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(dashingCooldown);
         canDash = true;
     }
-    
+
+
+
 }
