@@ -1025,6 +1025,10 @@ PrefabInstance:
       propertyPath: move
       value: 
       objectReference: {fileID: -6582928601471085688, guid: 5f0a08675ed35864dbe86760248850e0, type: 3}
+    - target: {fileID: 7303653126404918703, guid: 97c044036f94c03499db563a72f2397d, type: 3}
+      propertyPath: dashingCooldown
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 7303653126404918704, guid: 97c044036f94c03499db563a72f2397d, type: 3}
       propertyPath: m_RootOrder
       value: 0
