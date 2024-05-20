@@ -19,6 +19,8 @@ public class Health : MonoBehaviour
     {
         currentHealth -= damage;
 
+        healthBar.SetHealth(currentHealth);
+
         if (currentHealth <= 0)
         {
             Die();

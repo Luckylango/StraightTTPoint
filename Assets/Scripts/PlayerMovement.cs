@@ -3,11 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
+using UnityEditor.Build;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
-
 {
 
     private float horizontal;
@@ -30,8 +30,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 _moveDirection;
 
     public InputActionReference move;
-    public InputActionReference jump;
-    public InputActionReference dash;
+    PlayerControls controls;
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
@@ -126,6 +125,16 @@ public class PlayerMovement : MonoBehaviour
         canDash = true;
     }
 
+    //void Awake()
+   // {
+        //controls = new PlayerControls();
 
+        //controls.Gameplay.Jump.performed += ctx => Jump();
+   // }
+
+    //void OnEnable()
+   // {
+        //controls.Gameplay.Enable();
+   // }
 
 }
