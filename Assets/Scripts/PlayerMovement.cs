@@ -169,7 +169,6 @@ public class PlayerMovement : MonoBehaviour
        float originalGravity = rb.gravityScale;
        rb.gravityScale = 0f;
 
-        // PLEASE WORK
        if(horizontal < 0f)
        rb.velocity = new Vector2(-transform.localScale.x * dashingPower, 0f);
        else if(horizontal > 0f)
