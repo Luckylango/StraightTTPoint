@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -30,8 +31,6 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 _moveDirection;
 
     public InputActionReference move;
-    public InputActionReference jump;
-    public InputActionReference dash;
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
@@ -77,7 +76,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
         
-        if (Input.GetKeyDown(KeyCode.Q) && canDash)
+        if (Input.GetButtonDown("Dash") && canDash)
         {
             StartCoroutine(Dash());
         }
@@ -112,18 +111,18 @@ public class PlayerMovement : MonoBehaviour
 
     private IEnumerator Dash()
     {
-        canDash = false;
-        isDashing = true;
-        float originalGravity = rb.gravityScale;
-        rb.gravityScale = 0f;
-        rb.velocity = new Vector2(transform.localScale.x * dashingPower, 0f);
-        tr.emitting = true;
-        yield return new WaitForSeconds(dashingTime);
-        tr.emitting = false;
-        rb.gravityScale = originalGravity;
-        isDashing = false;
-        yield return new WaitForSeconds(dashingCooldown);
-        canDash = true;
+       canDash = false;
+       isDashing = true;
+       float originalGravity = rb.gravityScale;
+       rb.gravityScale = 0f;
+       rb.velocity = new Vector2(transform.localScale.x * dashingPower, 0f);
+       tr.emitting = true;
+       yield return new WaitForSeconds(dashingTime);
+       tr.emitting = false;
+       rb.gravityScale = originalGravity;
+       isDashing = false;
+       yield return new WaitForSeconds(dashingCooldown);
+       canDash = true;
     }
 
 

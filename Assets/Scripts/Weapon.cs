@@ -6,16 +6,14 @@ public class Weapon : MonoBehaviour
 {
     public Transform firePoint;
     public GameObject bulletPrefab;
-    public Animator animator;
 
     public float cooldownTime;
 
     private void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Shoot"))
         {
             Shoot();
-            animator.SetBool("IsShooting", true);
         }
     }
 
