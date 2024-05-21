@@ -31,15 +31,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "Fire",
-                    "type": "Button",
-                    "id": "e7bdd90c-e44f-4dc7-9e48-9927daa13913",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -53,6 +44,17 @@
                     "action": "Movement",
                     "isComposite": true,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "down",
+                    "id": "62e27f79-08fc-4846-914a-7c6f551b3f45",
+                    "path": "<Gamepad>/dpad/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controller",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 },
                 {
                     "name": "left",
@@ -86,6 +88,17 @@
                     "action": "Movement",
                     "isComposite": true,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "down",
+                    "id": "deca959a-5b96-4bc6-a5c5-11976881c336",
+                    "path": "<Gamepad>/leftStick/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controller",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 },
                 {
                     "name": "left",
@@ -123,22 +136,11 @@
                 {
                     "name": "",
                     "id": "964640d4-e0e9-4116-9fa3-5bf8c0b14e53",
-                    "path": "<Gamepad>/buttonWest",
-                    "interactions": "Tap",
+                    "path": "<Joystick>/stick/up",
+                    "interactions": "",
                     "processors": "",
                     "groups": "Controller",
                     "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "eda3c450-3467-4275-bb94-6f7d3b8cc962",
-                    "path": "<Gamepad>/buttonEast",
-                    "interactions": "Tap",
-                    "processors": "",
-                    "groups": "Controller",
-                    "action": "Fire",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

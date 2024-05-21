@@ -18,7 +18,6 @@ GameObject:
   - component: {fileID: 3006652706285503006}
   - component: {fileID: 3006652706285503004}
   - component: {fileID: -2940303774364763307}
-  - component: {fileID: 7125194453009531876}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Player
@@ -161,6 +160,8 @@ MonoBehaviour:
   dashingTime: 0.1
   dashingCooldown: 0.25
   move: {fileID: -6582928601471085688, guid: 5f0a08675ed35864dbe86760248850e0, type: 3}
+  jump: {fileID: 0}
+  dash: {fileID: 0}
   rb: {fileID: 3006652706285503203}
   groundCheck: {fileID: 3006652706550602658}
   groundLayer:
@@ -351,23 +352,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 105941df8240e1b459ddbeb90be5478d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 0
-  healthBar: {fileID: 0}
---- !u!114 &7125194453009531876
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3006652706285502988}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd0c65d6dc08248459947ade2387d367, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  firePoint: {fileID: 3840853660214907016}
-  bulletPrefab: {fileID: 4660301702161732194, guid: a1b5aa49f2f544a40846b2be3b9fd6ec, type: 3}
 --- !u!1 &3006652706550602659
 GameObject:
   m_ObjectHideFlags: 0
