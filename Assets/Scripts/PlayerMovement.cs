@@ -11,6 +11,14 @@ public class PlayerMovement : MonoBehaviour
 
 {
 
+    public enum MovementType
+    {
+        keyboard,
+        controller
+    };
+
+    public MovementType movementType;
+
     private float horizontal;
     public float speed;
     public float jumpingPower;
@@ -45,43 +53,88 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        animator.SetFloat("Speed", Mathf.Abs(horizontal));
-
-        _moveDirection = move.action.ReadValue<Vector2>();
-
-        if (isDashing)
+        if (movementType == MovementType.keyboard)
         {
-            return;
-        }
 
-        horizontal = Input.GetAxisRaw("Horizontal");
+            animator.SetFloat("Speed", Mathf.Abs(horizontal));
 
+            _moveDirection = move.action.ReadValue<Vector2>();
 
-        if (IsGrounded() && !Input.GetButton("Jump"))
-        {
-            isJumping = false;
-            animator.SetBool("IsJumping", false);
-            remainingJumps = maxJumps;
-        }
-
-        if (Input.GetButtonDown("Jump"))
-        {
-            if (IsGrounded() || (isJumping && remainingJumps > 0))
+            if (isDashing)
             {
-                isJumping = true;
-                animator.SetBool("IsJumping", true);
-                rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
-                remainingJumps--;
+                return;
+            }
+
+            horizontal = Input.GetAxisRaw("Horizontal");
+
+
+            if (IsGrounded() && !Input.GetButton("Jump"))
+            {
+                isJumping = false;
+                animator.SetBool("IsJumping", false);
+                remainingJumps = maxJumps;
+            }
+
+            if (Input.GetButtonDown("Jump"))
+            {
+                if (IsGrounded() || (isJumping && remainingJumps > 0))
+                {
+                    isJumping = true;
+                    animator.SetBool("IsJumping", true);
+                    rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+                    remainingJumps--;
+                }
+            }
+
+            if (Input.GetButtonDown("Dash") && canDash)
+            {
+                StartCoroutine(Dash());
+            }
+
+            Flip();
+        }
+        else
+        {
+            if(movementType == MovementType.controller)
+            {
+                animator.SetFloat("Speed", Mathf.Abs(horizontal));
+
+                _moveDirection = move.action.ReadValue<Vector2>();
+
+                if (isDashing)
+                {
+                    return;
+                }
+
+                horizontal = Input.GetAxisRaw("HorizontalGP");
+
+
+                if (IsGrounded() && !Input.GetButton("JumpGP"))
+                {
+                    isJumping = false;
+                    animator.SetBool("IsJumping", false);
+                    remainingJumps = maxJumps;
+                }
+
+                if (Input.GetButtonDown("JumpGP"))
+                {
+                    if (IsGrounded() || (isJumping && remainingJumps > 0))
+                    {
+                        isJumping = true;
+                        animator.SetBool("IsJumping", true);
+                        rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+                        remainingJumps--;
+                    }
+                }
+
+                if (Input.GetButtonDown("DashGP") && canDash)
+                {
+                    StartCoroutine(Dash());
+                }
+
+                Flip();
             }
         }
-        
-        if (Input.GetButtonDown("Dash") && canDash)
-        {
-            StartCoroutine(Dash());
-        }
-
-        Flip();
     }
 
     private void FixedUpdate()
@@ -115,8 +168,14 @@ public class PlayerMovement : MonoBehaviour
        isDashing = true;
        float originalGravity = rb.gravityScale;
        rb.gravityScale = 0f;
+
+        // PLEASE WORK
+       if(horizontal < 0f)
+       rb.velocity = new Vector2(-transform.localScale.x * dashingPower, 0f);
+       else if(horizontal > 0f)
        rb.velocity = new Vector2(transform.localScale.x * dashingPower, 0f);
-       tr.emitting = true;
+
+        tr.emitting = true;
        yield return new WaitForSeconds(dashingTime);
        tr.emitting = false;
        rb.gravityScale = originalGravity;
