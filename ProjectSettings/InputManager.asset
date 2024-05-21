@@ -217,7 +217,7 @@ InputManager:
     m_Name: DashGP
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: joystick button 7
+    negativeButton: 
     positiveButton: joystick button 5
     altNegativeButton: 
     altPositiveButton: 
