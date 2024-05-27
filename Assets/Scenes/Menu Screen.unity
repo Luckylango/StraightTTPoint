@@ -362,7 +362,7 @@ RectTransform:
   m_GameObject: {fileID: 554007518}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 9.7416, y: 9.7416, z: 9.7416}
+  m_LocalScale: {x: 14.476991, y: 14.476991, z: 14.476991}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 223313540}
@@ -370,7 +370,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 635, y: -163}
+  m_AnchoredPosition: {x: 469.281, y: -327.95865}
   m_SizeDelta: {x: 64, y: 64}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &554007520
@@ -495,15 +495,15 @@ RectTransform:
   m_GameObject: {fileID: 1022824693}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 9.7416, y: 9.7416, z: 9.7416}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 14.476992, y: 14.476992, z: 14.476992}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 223313540}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 635, y: 24.9505}
+  m_AnchoredPosition: {x: 469.281, y: 52.569828}
   m_SizeDelta: {x: 64, y: 64}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1022824695
@@ -744,9 +744,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1116171992}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.000030517578, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.0000000053551044, w: 1}
+  m_LocalPosition: {x: 0.00000011920929, y: 0.000031471252, z: 0.0000076293945}
+  m_LocalScale: {x: 0.99999994, y: 1, z: 0.9999998}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1426,7 +1426,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 1000
+    maxNumParticles: 2000
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0
@@ -1692,7 +1692,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 25
+      scalar: 100
       minScalar: 10
       maxCurve:
         serializedVersion: 2
