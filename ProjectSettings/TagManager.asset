@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Player2
   layers:
   - Default
   - TransparentFX
@@ -11,10 +12,10 @@ TagManager:
   - Ground
   - Water
   - UI
-  - Foreground
-  - Background
-  - 
-  - 
+  - Player1
+  - Player2
+  - Bullet1
+  - Bullet2
   - 
   - 
   - 

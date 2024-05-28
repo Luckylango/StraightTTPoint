@@ -27,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
     public Animator animator;
 
     private bool isJumping;
-    private int maxJumps = 5;
+    private int maxJumps = 3;
     private int remainingJumps;
 
     private bool canDash = true;
@@ -161,7 +161,6 @@ public class PlayerMovement : MonoBehaviour
             transform.Rotate(0f, 180f, 0f);
         }
     }
-
     private IEnumerator Dash()
     {
        canDash = false;

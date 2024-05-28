@@ -9,13 +9,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6198800924486760631}
-  - component: {fileID: -1206770597371664213}
   - component: {fileID: 347193029757371458}
   - component: {fileID: 8488947090383483560}
   - component: {fileID: 8100594494321201565}
   - component: {fileID: 2020058991519751846}
-  m_Layer: 8
-  m_Name: Bullet
+  - component: {fileID: 6441170560330032556}
+  m_Layer: 9
+  m_Name: Bullet 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36,21 +36,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-1206770597371664213
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4660301702161732194}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b95aa4509eeb4d048b587464d08e3720, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 20
-  damage: 40
-  rb: {fileID: 8488947090383483560}
 --- !u!212 &347193029757371458
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -163,3 +148,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotSpeed: 10
+--- !u!114 &6441170560330032556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4660301702161732194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b220818b7b9315f4fbbddb553add0639, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 20
+  damage: 40
+  rb: {fileID: 8488947090383483560}

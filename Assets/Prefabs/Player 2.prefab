@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 4011073775287131068}
   - component: {fileID: 7552674873291668408}
   - component: {fileID: 83043332869242453}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player 2
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 486.12027, y: 255.8557, z: 1.97}
   m_LocalScale: {x: 3.571847, y: 3.571847, z: 3.571847}
-  m_ConstrainProportionsScale: 1
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9202265995307834641}
   - {fileID: 3159547721710318936}
@@ -368,7 +368,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firePoint: {fileID: 3159547721710318936}
-  bulletPrefab: {fileID: 4660301702161732194, guid: a1b5aa49f2f544a40846b2be3b9fd6ec, type: 3}
+  bulletPrefab: {fileID: 4660301702161732194, guid: b23186d09f27073488e506ef42c5d1cd, type: 3}
   movementType: 1
   cooldownTime: 2
 --- !u!1 &2746947887307455938
@@ -380,7 +380,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9202265995307834641}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ground Check
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -411,7 +411,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3159547721710318936}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Fire Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
