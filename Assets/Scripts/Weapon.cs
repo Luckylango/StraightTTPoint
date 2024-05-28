@@ -6,22 +6,26 @@ public class Weapon : MonoBehaviour
 {
     public Transform firePoint;
     public GameObject bulletPrefab;
+
+    public float cooldownTime = 1f;
+    private bool isCooldown = false;
+
+    public MovementType movementType;
+
+
     public enum MovementType
     {
         keyboard,
         controller
     };
 
-    public MovementType movementType;
-
-    public float cooldownTime;
-
     private void Update()
     {
         if (movementType == MovementType.keyboard)
         {
-            if (Input.GetButtonDown("Shoot"))
+            if (Input.GetButtonDown("Shoot") && !isCooldown)
             {
+                StartCoroutine(Cooldown());
                 Shoot();
             }
         }
@@ -36,6 +40,14 @@ public class Weapon : MonoBehaviour
             }
         }
     }
+
+    private IEnumerator Cooldown()
+    {
+        isCooldown = true;
+        yield return new WaitForSeconds(cooldownTime);
+        isCooldown = false;
+    }
+
     void Shoot()
     {
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
