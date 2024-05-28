@@ -33,8 +33,9 @@ public class Weapon : MonoBehaviour
         {
             if (movementType == MovementType.controller)
             {
-                if (Input.GetButtonDown("ShootGP"))
+                if (Input.GetButtonDown("ShootGP") && !isCooldown)
                 {
+                    StartCoroutine(Cooldown());
                     Shoot();
                 }
             }
