@@ -9,6 +9,9 @@ public class Health : MonoBehaviour
 
     public HealthBar healthBar;
 
+    public GameManagerScript gameManager;
+    private bool isDead;
+
     void Start()
     {
         currentHealth = maxHealth;
@@ -21,13 +24,15 @@ public class Health : MonoBehaviour
 
         healthBar.SetHealth(currentHealth);
 
-        if (currentHealth <= 0)
+        if (currentHealth <= 0 && !isDead)
         {
             Die();
         }
     }
     void Die()
     {
+        isDead = true;
+        gameManager.gameOver();
         Destroy(gameObject);
     }
 }
