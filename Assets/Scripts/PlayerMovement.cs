@@ -1,9 +1,5 @@
-using Mono.Cecil;
+
 using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -22,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     private float horizontal;
     public float speed;
     public float jumpingPower;
-    private bool isFacingRight = true;
+    public bool isFacingRight = true;
 
     public Animator animator;
 
@@ -47,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
+
         animator = GetComponent<Animator>();
     }
 

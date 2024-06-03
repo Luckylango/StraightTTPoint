@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
 public class Health : MonoBehaviour
@@ -7,13 +6,20 @@ public class Health : MonoBehaviour
     public int maxHealth = 100;
     public int currentHealth;
 
+    public GameObject player;
+
     public HealthBar healthBar;
+
+    public GameObject gameOverUIp1Win;
+
+    public GameObject gameOverUIp2Win;
 
     public GameManagerScript gameManager;
     private bool isDead;
 
     void Start()
     {
+        player = this.gameObject;
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
     }
@@ -31,8 +37,17 @@ public class Health : MonoBehaviour
     }
     void Die()
     {
+        if(this.gameObject.tag == "Player2")
+        {
+            gameOverUIp1Win.SetActive(true);
+        }
+
+        if (this.gameObject.tag == "Player")
+        {
+            gameOverUIp2Win.SetActive(true);
+        }
+
         isDead = true;
-        gameManager.gameOver();
         Destroy(gameObject);
     }
 }
