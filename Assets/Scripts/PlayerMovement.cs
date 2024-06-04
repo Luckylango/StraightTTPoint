@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
     public Animator animator;
 
     private bool isJumping;
-    private int maxJumps = 3;
+    private int maxJumps = 4;
     private int remainingJumps;
 
     private bool canDash = true;

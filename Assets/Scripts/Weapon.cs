@@ -9,6 +9,9 @@ public class Weapon : MonoBehaviour
     public float cooldownTime = 1f;
     private bool isCooldown = false;
 
+    public AudioSource source;
+    public AudioClip clip;
+
     public MovementType movementType;
 
 
@@ -24,6 +27,7 @@ public class Weapon : MonoBehaviour
         {
             if (Input.GetButtonDown("Shoot") && !isCooldown)
             {
+                source.PlayOneShot(clip, 1);
                 StartCoroutine(Cooldown());
                 Shoot();
             }
@@ -34,6 +38,7 @@ public class Weapon : MonoBehaviour
             {
                 if (Input.GetButtonDown("ShootGP") && !isCooldown)
                 {
+                    source.PlayOneShot(clip, 1);
                     StartCoroutine(Cooldown());
                     Shoot();
                 }
