@@ -17,12 +17,15 @@ public class Health : MonoBehaviour
     public GameManagerScript gameManager;
     private bool isDead;
 
+    public AudioSource Music;
+
     void Start()
     {
         player = this.gameObject;
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
     }
+
 
     public void TakeDamage(int damage)
     {
